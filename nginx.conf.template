@@ -1,0 +1,24 @@
+server {
+    listen 80;
+    server_name _;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Gzip
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml;
+
+    # Frontend - SPA routing
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Proxy do Grocy API z wstrzykiwaniem klucza
+    location /api/grocy/ {
+        proxy_pass http://grocy:80/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header GROCY-API-KEY ${GROCY_API_KEY};
+    }
+}

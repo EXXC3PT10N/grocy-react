@@ -1,0 +1,26 @@
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy:latest
+    container_name: grocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Warsaw
+    volumes:
+      - ./grocy-data:/config
+    expose:
+      - "80"
+    ports:
+      - 9283:80
+    restart: unless-stopped
+
+  frontend:
+    build: .
+    container_name: frontend
+    environment:
+      - GROCY_API_KEY=${GROCY_API_KEY}
+    ports:
+      - "80:80"
+    depends_on:
+      - grocy
+    restart: unless-stopped
