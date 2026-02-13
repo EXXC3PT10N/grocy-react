@@ -1,0 +1,33 @@
+.NavigationMenuRoot {
+  background-color: #0f1b1b;
+  position: sticky;
+}
+
+.NavigationMenuList {
+  list-style: none;
+}
+
+.NavigationMenuItem {
+  padding: 10px;
+}
+
+.NavigationMenuLink {
+  color: #c4f5e1;
+  text-decoration: none;
+  font-size: 1.5rem;
+  align-items: center;
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.active {
+    color: #58d5ba;
+  }
+}
+
+.NavigationIcon {
+  height: 1em;
+  width: 1em;
+  margin-right: 10px;
+}
