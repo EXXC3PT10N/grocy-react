@@ -71,6 +71,15 @@ function Dashboard() {
             {expiredProducts?.map((element) => {
               return <li>test</li>;
             })}
+            {expiredProducts?.map((element) => {
+              return <li>test</li>;
+            })}
+            {expiredProducts?.map((element) => {
+              return <li>test</li>;
+            })}
+            {expiredProducts?.map((element) => {
+              return <li>test</li>;
+            })}
           </ul>
         </div>
         {systemInfo ? (
